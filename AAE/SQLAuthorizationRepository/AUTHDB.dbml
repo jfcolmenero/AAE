@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AUTHDB" Class="AUTHDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=sv3161;Initial Catalog=AUTHDB;Persist Security Info=True;User ID=sa" SettingsObjectName="SQLAuthorizationRepository.Properties.Settings" SettingsPropertyName="AUTHDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AUTH_Authorization" Member="AUTH_Authorizations">
+    <Type Name="AUTH_Authorization">
+      <Column Name="AuthorizationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuthorizationObjectId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ValueList" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Hash" Type="System.String" DbType="NVarChar(44) NOT NULL" CanBeNull="false" />
+      <Association Name="AUTH_Authorization_AUTH_ProfilesContent" Member="AUTH_ProfilesContents" ThisKey="AuthorizationId" OtherKey="AuthorizationId" Type="AUTH_ProfilesContent" />
+      <Association Name="AUTH_AuthorizationObject_AUTH_Authorization" Member="AUTH_AuthorizationObject" ThisKey="AuthorizationObjectId" OtherKey="AuthorizationObjectId" Type="AUTH_AuthorizationObject" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AUTH_UsersMasterRecord" Member="AUTH_UsersMasterRecords">
+    <Type Name="AUTH_UsersMasterRecord">
+      <Column Name="HashCode" Type="System.String" DbType="NVarChar(44) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AUTH_AuthorizationGroup" Member="AUTH_AuthorizationGroups">
+    <Type Name="AUTH_AuthorizationGroup">
+      <Column Name="AuthorizationObjectGroupId" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AUTH_AuthorizationGroup_AUTH_AuthorizationObject" Member="AUTH_AuthorizationObjects" ThisKey="AuthorizationObjectGroupId" OtherKey="AuthorizationObjectGroupId" Type="AUTH_AuthorizationObject" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AUTH_AuthorizationObject" Member="AUTH_AuthorizationObjects">
+    <Type Name="AUTH_AuthorizationObject">
+      <Column Name="AuthorizationObjectId" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuthorizationObjectGroupId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FieldList" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="AUTH_AuthorizationObject_AUTH_Authorization" Member="AUTH_Authorizations" ThisKey="AuthorizationObjectId" OtherKey="AuthorizationObjectId" Type="AUTH_Authorization" />
+      <Association Name="AUTH_AuthorizationGroup_AUTH_AuthorizationObject" Member="AUTH_AuthorizationGroup" ThisKey="AuthorizationObjectGroupId" OtherKey="AuthorizationObjectGroupId" Type="AUTH_AuthorizationGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AUTH_Field" Member="AUTH_Fields">
+    <Type Name="AUTH_Field">
+      <Column Name="FieldId" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FieldValues" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AUTH_Profile" Member="AUTH_Profiles">
+    <Type Name="AUTH_Profile">
+      <Column Name="ProfileId" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="AUTH_Profile_AUTH_ProfilesContent" Member="AUTH_ProfilesContents" ThisKey="ProfileId" OtherKey="ProfileId" Type="AUTH_ProfilesContent" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AUTH_ProfilesContent" Member="AUTH_ProfilesContents">
+    <Type Name="AUTH_ProfilesContent">
+      <Column Name="ProfileId" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuthorizationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AUTH_Authorization_AUTH_ProfilesContent" Member="AUTH_Authorization" ThisKey="AuthorizationId" OtherKey="AuthorizationId" Type="AUTH_Authorization" IsForeignKey="true" />
+      <Association Name="AUTH_Profile_AUTH_ProfilesContent" Member="AUTH_Profile" ThisKey="ProfileId" OtherKey="ProfileId" Type="AUTH_Profile" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

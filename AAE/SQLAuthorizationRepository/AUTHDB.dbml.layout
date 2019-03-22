@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="AUTHDB">
+  <DataContextMoniker Name="/AUTHDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4368f232-aed3-40f3-a4cf-5f8cb37dbffb" absoluteBounds="6.25, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AUTHDBDataContext/AUTH_Authorization" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b66c9c2c-9e54-4dd9-a94b-c19193fb665a" absoluteBounds="6.265, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8b76b90-f3c2-45c5-8b7c-f853bbd9437c" absoluteBounds="0.75, 3.75, 2, 1.193992513020834">
+      <DataClassMoniker Name="/AUTHDBDataContext/AUTH_UsersMasterRecord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f753c96-2e73-47e1-aacd-cc0f5c7501bd" absoluteBounds="0.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d5f44f57-c585-43ba-9acd-db8054509c46" absoluteBounds="0.75, 1.25, 2, 1.0016910807291664">
+      <DataClassMoniker Name="/AUTHDBDataContext/AUTH_AuthorizationGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75170a5d-634d-4469-a6c8-b239a865098a" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12f8df78-d7c6-4d0e-97ec-09de521d4222" absoluteBounds="3.5, 1, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/AUTHDBDataContext/AUTH_AuthorizationObject" />
+      <nestedChildShapes>
+        <elementListCompartment Id="afce8e4b-f410-4cf0-8ccf-1b95d5f36ccf" absoluteBounds="3.515, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="54df39d7-2e48-4cf1-a9ac-bc4b720cc843" absoluteBounds="0.75, 5.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/AUTHDBDataContext/AUTH_Field" />
+      <nestedChildShapes>
+        <elementListCompartment Id="590ebe5d-be05-4ac0-9b0f-bcca938f76e6" absoluteBounds="0.765, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6e729c4-fe5b-4954-a71d-957d32565b9d" absoluteBounds="6.25, 4.125, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/AUTHDBDataContext/AUTH_Profile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d9c156b2-1b23-49d8-a9a9-adc27600e62c" absoluteBounds="6.265, 4.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0bc2b1f8-18e1-47fa-ae50-5756fdfe7103" absoluteBounds="9, 1.125, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/AUTHDBDataContext/AUTH_ProfilesContent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6ada503-aa98-4bd4-b5fc-8005c631c3d5" absoluteBounds="9.015, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.69314697265625); (6.25 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AUTHDBDataContext/AUTH_AuthorizationObject/AUTH_AuthorizationObject_AUTH_Authorization" />
+      <nodes>
+        <classShapeMoniker Id="12f8df78-d7c6-4d0e-97ec-09de521d4222" />
+        <classShapeMoniker Id="4368f232-aed3-40f3-a4cf-5f8cb37dbffb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.75084554036458); (3.5 : 1.75084554036458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AUTHDBDataContext/AUTH_AuthorizationGroup/AUTH_AuthorizationGroup_AUTH_AuthorizationObject" />
+      <nodes>
+        <classShapeMoniker Id="d5f44f57-c585-43ba-9acd-db8054509c46" />
+        <classShapeMoniker Id="12f8df78-d7c6-4d0e-97ec-09de521d4222" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.72199625651042); (9 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AUTHDBDataContext/AUTH_Authorization/AUTH_Authorization_AUTH_ProfilesContent" />
+      <nodes>
+        <classShapeMoniker Id="4368f232-aed3-40f3-a4cf-5f8cb37dbffb" />
+        <classShapeMoniker Id="0bc2b1f8-18e1-47fa-ae50-5756fdfe7103" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.72199625651042); (10 : 4.72199625651042); (10 : 2.31899251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AUTHDBDataContext/AUTH_Profile/AUTH_Profile_AUTH_ProfilesContent" />
+      <nodes>
+        <classShapeMoniker Id="a6e729c4-fe5b-4954-a71d-957d32565b9d" />
+        <classShapeMoniker Id="0bc2b1f8-18e1-47fa-ae50-5756fdfe7103" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
