@@ -25,10 +25,6 @@ namespace AAE
 
         #region Public Methods
 
-        /// <summary>
-        ///  THIS CONSTRUCTOR MUST BE CHANGED TO USE IoC
-        /// </summary>
-        /// <param name="authRepository"></param>
         public AuthorizationEngine(IAuthorizationRepository authRepository)
         {
             _authRepository = authRepository;

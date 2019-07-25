@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SQLAuthorizationRepository
 {
-    class SQLAuthorizationRepository : IAuthorizationRepository
+    public class SQLAuthorizationRepository : IAuthorizationRepository
     {
         private string _connectionString;
 
